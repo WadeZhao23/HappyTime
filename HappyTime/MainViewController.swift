@@ -20,6 +20,9 @@ class MainViewController: NSViewController {
     let durationIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "duration")
     let happyTimeIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "happyTime")
     
+    var countDownTimer: Timer?
+    var certainFocusTime: Int = 0
+    
     override func viewDidLoad() {
 		super.viewDidLoad()
         setupSubViews()
@@ -46,12 +49,26 @@ extension MainViewController {
     }
     
     @objc func tapStartAction() {
-        let dur: Int = Int(durationDatas[durationComboBox.indexOfSelectedItem]) ?? 0
-        let fou: Int = Int(happyTimeDatas[happyTimeComboBox.indexOfSelectedItem]) ?? 0
-        
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(dur * 60), repeats: false) { (timer) in
-//            print("Start Focus Time")
+        let durationTime: Int = Int(durationDatas[durationComboBox.indexOfSelectedItem]) ?? 0
+        let focusTime: Int = Int(happyTimeDatas[happyTimeComboBox.indexOfSelectedItem]) ?? 0
+
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(durationTime * 60), repeats: false) { [weak self] (timer) in
+            Appearance.shared.happyTimeWindowController.showWindow(nil)
+            self?.countDownTimer?.invalidate()
+            self?.countDownLabel.stringValue = "00:00"
         }
         Appearance.shared.closePopover()
+        Appearance.shared.happyTime = focusTime * 60
+        certainFocusTime = durationTime * 60
+        setupCountDownTimer()
+    }
+    
+    private func setupCountDownTimer() {
+        countDownTimer = Timer(timeInterval: 1, repeats: true, block: { [weak self] (temp) in
+            self?.certainFocusTime = (self?.certainFocusTime ?? 0) - 1
+            self?.countDownLabel.stringValue = self?.certainFocusTime.toDuration() ?? "00:00"
+        })
+        RunLoop.current.add(countDownTimer!, forMode: .default)
+        countDownTimer?.fire()
     }
 }
