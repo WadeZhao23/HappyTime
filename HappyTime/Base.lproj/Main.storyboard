@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -772,6 +772,67 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="268.5"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="pE4-t4-bHU">
+            <objects>
+                <windowController storyboardIdentifier="HappyTimeWindowController" id="0S2-2F-Nf3" customClass="HappyTimeWindowController" customModule="HappyTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9oQ-h6-Bil">
+                        <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="691" y="400" width="433" height="275"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="0S2-2F-Nf3" id="8pS-pr-v7r"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="r9r-Kf-QDD" kind="relationship" relationship="window.shadowedContentViewController" id="UBc-9O-pRF"/>
+                    </connections>
+                </windowController>
+                <customObject id="X8a-pq-QGR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50.5" y="658.5"/>
+        </scene>
+        <!--Happy Time View Controller-->
+        <scene sceneID="HWp-N1-NcY">
+            <objects>
+                <viewController id="r9r-Kf-QDD" customClass="HappyTimeViewController" customModule="HappyTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="f93-Eh-YLb">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7le-k0-ECm">
+                                <rect key="frame" x="208" y="118" width="64" height="32"/>
+                                <buttonCell key="cell" type="push" title="End" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="31Y-VB-D6d">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y0C-Nu-EVn">
+                                <rect key="frame" x="201" y="173" width="79" height="38"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="00:00" id="4uj-99-0a3">
+                                    <font key="font" size="32" name="Times-Bold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7le-k0-ECm" firstAttribute="top" secondItem="y0C-Nu-EVn" secondAttribute="bottom" constant="27" id="6Bl-rK-AoI"/>
+                            <constraint firstItem="7le-k0-ECm" firstAttribute="centerX" secondItem="f93-Eh-YLb" secondAttribute="centerX" id="E6Y-aZ-I96"/>
+                            <constraint firstItem="y0C-Nu-EVn" firstAttribute="centerX" secondItem="f93-Eh-YLb" secondAttribute="centerX" id="If5-1F-3In"/>
+                            <constraint firstItem="7le-k0-ECm" firstAttribute="centerY" secondItem="f93-Eh-YLb" secondAttribute="centerY" id="Ssy-zn-dbS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countDownLabel" destination="y0C-Nu-EVn" id="Slp-7B-8gU"/>
+                        <outlet property="endButton" destination="7le-k0-ECm" id="VT5-ZP-lK8"/>
+                    </connections>
+                </viewController>
+                <customObject id="TZe-KP-OC3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="664"/>
         </scene>
     </scenes>
 </document>

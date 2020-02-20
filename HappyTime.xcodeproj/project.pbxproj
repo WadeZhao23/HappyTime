@@ -11,6 +11,8 @@
 		14397DF72313D26A00B49C29 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14397DF62313D26A00B49C29 /* MainViewController.swift */; };
 		14397DF92313D26C00B49C29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14397DF82313D26C00B49C29 /* Assets.xcassets */; };
 		14397DFC2313D26C00B49C29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14397DFA2313D26C00B49C29 /* Main.storyboard */; };
+		148D2DAA23CC189600CA4960 /* HappyTimeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D2DA923CC189600CA4960 /* HappyTimeWindowController.swift */; };
+		14ABE70423C5B66C003E0EE0 /* HappyTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABE70323C5B66C003E0EE0 /* HappyTimeViewController.swift */; };
 		14BBA3E023AB8CF1003EC046 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBA3DF23AB8CF1003EC046 /* Appearance.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +24,8 @@
 		14397DFB2313D26C00B49C29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14397DFD2313D26C00B49C29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14397DFE2313D26C00B49C29 /* HappyTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HappyTime.entitlements; sourceTree = "<group>"; };
+		148D2DA923CC189600CA4960 /* HappyTimeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyTimeWindowController.swift; sourceTree = "<group>"; };
+		14ABE70323C5B66C003E0EE0 /* HappyTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyTimeViewController.swift; sourceTree = "<group>"; };
 		14BBA3DF23AB8CF1003EC046 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +61,8 @@
 			children = (
 				14397DF42313D26A00B49C29 /* AppDelegate.swift */,
 				14397DF62313D26A00B49C29 /* MainViewController.swift */,
+				14ABE70323C5B66C003E0EE0 /* HappyTimeViewController.swift */,
+				148D2DA923CC189600CA4960 /* HappyTimeWindowController.swift */,
 				14BBA3DF23AB8CF1003EC046 /* Appearance.swift */,
 				14397DFA2313D26C00B49C29 /* Main.storyboard */,
 				14397DFE2313D26C00B49C29 /* HappyTime.entitlements */,
@@ -138,6 +144,8 @@
 			files = (
 				14397DF72313D26A00B49C29 /* MainViewController.swift in Sources */,
 				14BBA3E023AB8CF1003EC046 /* Appearance.swift in Sources */,
+				148D2DAA23CC189600CA4960 /* HappyTimeWindowController.swift in Sources */,
+				14ABE70423C5B66C003E0EE0 /* HappyTimeViewController.swift in Sources */,
 				14397DF52313D26A00B49C29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
