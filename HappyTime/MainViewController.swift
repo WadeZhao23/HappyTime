@@ -26,6 +26,7 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
 		super.viewDidLoad()
         setupSubViews()
+        setupCountDownTimer()
 	}
 
 	override var representedObject: Any? {
@@ -60,7 +61,7 @@ extension MainViewController {
         Appearance.shared.closePopover()
         Appearance.shared.happyTime = focusTime * 60
         certainFocusTime = durationTime * 60
-        setupCountDownTimer()
+        countDownTimer?.fire()
     }
     
     private func setupCountDownTimer() {
@@ -69,6 +70,5 @@ extension MainViewController {
             self?.countDownLabel.stringValue = self?.certainFocusTime.toDuration() ?? "00:00"
         })
         RunLoop.current.add(countDownTimer!, forMode: .default)
-        countDownTimer?.fire()
     }
 }

@@ -25,7 +25,7 @@ class HappyTimeViewController: NSViewController {
 extension HappyTimeViewController {
     private func setupBackground() {
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.gray.withAlphaComponent(0.6).cgColor
+        view.layer?.backgroundColor = NSColor.gray.withAlphaComponent(0.8).cgColor
     }
     
     private func setupSubViews() {
@@ -37,6 +37,7 @@ extension HappyTimeViewController {
     
     @objc func tapEndButton() {
         Appearance.shared.happyTimeWindowController.close()
+        timer?.invalidate()
     }
     
     @objc func updateTimeLabel(_ time: Int) {
@@ -44,9 +45,16 @@ extension HappyTimeViewController {
     }
     
     func setupTimer() {
+        happyTime = Appearance.shared.happyTime
+        
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(happyTime), repeats: false) { [weak self] (temp) in
+            self?.tapEndButton()
+        }
+        
         timer = Timer(timeInterval: 1, repeats: true, block: { [weak self] (temp) in
-            Appearance.shared.happyTime = Appearance.shared.happyTime - 1
-            self?.updateTimeLabel(Appearance.shared.happyTime)
+            guard let self = self else { return }
+            self.happyTime = self.happyTime - 1
+            self.updateTimeLabel(self.happyTime)
         })
         RunLoop.current.add(timer!, forMode: .default)
         timer?.fire()
