@@ -14,8 +14,8 @@ class MainViewController: NSViewController {
     @IBOutlet weak var happyTimeComboBox: NSComboBox!
     @IBOutlet weak var startButton: NSButton!
     
-    let durationDatas: [String] = ["15", "20", "30", "40", "45", "50", "60"]
-    let happyTimeDatas: [String] = ["1", "2", "3", "5", "10", "15", "20", "25", "30"]
+    let durationDatas: [String] = DataCenter.shared.focusTimeLists
+    let happyTimeDatas: [String] = DataCenter.shared.happyTimeLists
     
     let durationIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "duration")
     let happyTimeIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "happyTime")
@@ -59,7 +59,8 @@ extension MainViewController {
             self?.countDownLabel.stringValue = "00:00"
         }
         Appearance.shared.closePopover()
-        Appearance.shared.happyTime = focusTime * 60
+        DataCenter.shared.happyTime = focusTime * 60
+        DataCenter.shared.focusTime = durationTime * 60
         certainFocusTime = durationTime * 60
         countDownTimer?.fire()
     }
