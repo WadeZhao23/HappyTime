@@ -31,7 +31,7 @@ extension HappyTimeViewController {
     private func setupSubViews() {
         endButton.target = self
         endButton.action = #selector(tapEndButton)
-        updateTimeLabel(Appearance.shared.happyTime)
+        updateTimeLabel(DataCenter.shared.happyTime)
         setupBackground()
     }
     
@@ -45,7 +45,7 @@ extension HappyTimeViewController {
     }
     
     func setupTimer() {
-        happyTime = Appearance.shared.happyTime
+        happyTime = DataCenter.shared.happyTime
         
         Timer.scheduledTimer(withTimeInterval: TimeInterval(happyTime), repeats: false) { [weak self] (temp) in
             self?.tapEndButton()

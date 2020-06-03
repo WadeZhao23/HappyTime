@@ -45,6 +45,7 @@ class Appearance: NSObject {
         }
         
         popover.contentViewController = vc
+        popover.delegate = self
     }
     
     @objc func tapItemButtonAction() {
@@ -63,6 +64,12 @@ class Appearance: NSObject {
     
     func closePopover() {
         popover.close()
+    }
+}
+
+extension Appearance: NSPopoverDelegate {
+    func popoverShouldClose(_ popover: NSPopover) -> Bool {
+        return true
     }
 }
 
